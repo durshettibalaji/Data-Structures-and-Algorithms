@@ -2,36 +2,35 @@ package sortingandsearching;
 
 public class quickSort {
     public static void main(String[] args) {
-        int[] arr={3,5,0,1,2,4};
-        print(arr);
+        int[] arr={3,2,1};
         sort(arr,0,arr.length-1);
         print(arr);
     }
     static void sort(int[] arr,int l,int h)
     {
-        if(l<h)
-        {
-           int p= partion(arr,l,h);
+        if((l>=h))
+            return ;
+
+           int p= partion_sharadhadhidi(arr,l,h);
             sort(arr,l,p-1);
             sort(arr,p+1,h);
-        }
     }
-    static int partion(int[] arr,int l,int h)
+    static int partion_lovebabbar(int[] arr,int low,int high)
     {
-        int pivot=arr[l];
+//        print(arr);
+        int pivot=arr[high];
         int count=0;
-        int index=0;
-        for(int i=l+1;i<=h;i++)
+        for(int i=low;i<high;i++)
         {
             if(arr[i]<=pivot)
                 count++;
         }
-        index=l+count;
-        swap(arr,l,index);
-        int i=l,j=h;
+        int index=low+count;
+        swap(arr,index,high);
+        int i=low,j=high;
         while(i<index && j>index)
         {
-            while(arr[i]<pivot)
+            while(arr[i]<=pivot)
                 i++;
             while(arr[j]>pivot)
                 j--;
@@ -39,6 +38,7 @@ public class quickSort {
                 swap(arr,i++,j--);
         }
         return index;
+
     }
     static void swap(int[] arr,int i,int j)
     {
@@ -55,4 +55,22 @@ public class quickSort {
         System.out.println();
     }
 
+
+
+    static int partion_sharadhadhidi(int[] arr,int low,int high)
+    {
+        int pivot=arr[high];
+        int i=low-1;
+        for(int k=low;k<high;k++)
+        {
+            if(arr[k]<pivot) {
+                i++;
+                swap(arr, k, i);
+
+            }
+        }
+        i++;
+        swap(arr,i,high);
+        return i;
+    }
 }

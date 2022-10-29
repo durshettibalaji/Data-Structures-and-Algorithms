@@ -9,6 +9,9 @@ public class middleOfLinkedList {
         mid.insert(4);
         mid.insert(5);
         mid.insert(6);
+//        mid.insert(7);
+        mid.print();
+        System.out.println();
         mid.midele();
     }
 
@@ -64,7 +67,7 @@ class middle {
         node temp=head;
         while(temp!=null)
         {
-            System.out.println(temp.data);
+            System.out.print(temp.data+" ");
             temp=temp.next;
         }
     }

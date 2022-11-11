@@ -8,7 +8,7 @@ public class doubleLL1 {
         dd.insert(3);
         dd.insert(3,12);
         dd.insert(3,67);
-       dd.deletion(0);
+//       dd.deletion(0);
         dd.show();
         System.out.println(dd.head.next.pre.val);
     }

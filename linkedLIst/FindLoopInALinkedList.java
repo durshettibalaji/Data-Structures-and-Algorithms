@@ -13,7 +13,7 @@ public class FindLoopInALinkedList {
             obj.addElementFromRear(eachNumber);
         }
         obj.createLoop();
-        System.out.println(obj.loopfind());
+        obj.loopfind();
 
     }
 
@@ -56,7 +56,7 @@ public class FindLoopInALinkedList {
         }
         System.out.println();
     }
-    boolean loopfind()
+    void loopfind()
     {
         Node slow=head;
         Node fast=head;
@@ -66,17 +66,23 @@ public class FindLoopInALinkedList {
             fast=fast.next.next;
             slow=slow.next;
             if(slow==fast)
-                return true;
+                break;
         }
-        return false;
+        if(slow!=fast) {
+            System.out.println("There is no loop in list");
+            return ;
+        }
+        slow=head;
+        while(slow.next!=fast.next)
+        {
+            slow=slow.next;
+            fast=fast.next;
+        }
+        fast.next=null;
+        printList();
+
     }
 
-    void deleteloop()
-    {
-        if(loopfind()==true)
-        {
-        }
-    }
 
 
     class Node {

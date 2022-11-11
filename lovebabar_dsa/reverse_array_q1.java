@@ -11,8 +11,15 @@ public class reverse_array_q1 {
         {
             arr[i]=sc.nextInt();
         }
-//        for(int i=0;i<n;i++)
-//            System.out.print(arr[i]+" ");
+        rec(arr,0,n-1);
+
+        for(int i=0;i<n;i++)
+            System.out.print(arr[i]+" ");
+
+    }
+
+    public  static void  itr(int[] arr,int n)
+    {
         int l=0;           //to point elements from start
         int h=n-1;         // to point elements from last
         while(l<h)          // in while loop we are swaping the elements like frist element with last
@@ -23,8 +30,25 @@ public class reverse_array_q1 {
             l++;
             h--;
         }
-        for(int i=0;i<n;i++)
-            System.out.print(arr[i]+" ");
+    }
+
+
+    public static void rec(int[] arr,int i,int j)
+    {
+        if(i>j)
+        {
+            return ;
+        }
+        swap(arr,i,j);
+        rec(arr,i+1,j-1);
+    }
+
+
+    public static void swap(int[] arr,int i ,int j)
+    {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
 
     }
 }
